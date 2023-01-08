@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ex3</title>
+  </head>
+<body>
+  <h1>
+    Système de chiffrement de césar
+  </h1>
+
+  <div id="container-1">
+    <h2>
+      Texte clair
+    </h2>
+    <!--ici on le champ le text clair-->
+    <label>
+      <textarea type="text" id="planinput-1" placeholder="type here"></textarea>
+    </label> <br>
+    <h2>
+      Decalage
+    </h2>
+    <!--ici on le champ de nombre de decalage-->
+    <input type="number" id="decalage" min="0" max="25">
+    <button id="encrypt-btn"  onclick="encrypt (this);">Chiffrer</button> <br>
+    <!--ici on le champ le text decode-->
+    <label>
+       <textarea type="text" id="encryptedinput" placeholder="le texte chiffrer va afficher ici.."></textarea>
+    </label>
+
+  </div>
+ 
+   <script>
+     let encryptBtn = document.getElementById("encrypt-btn"); //bouton
+     let einput = document.getElementById("encryptedinput"); //texte decode
+     let pinput =document.getElementById("planinput-1"); //texte clair
+     let inputs =[einput,pinput]
+
+    function encrypt(txt)
+    {
+      let solved ="" //variable ou on va stoke le resultat final qui va etre afficher
+      let decalage = parseInt(document.getElementById("decalage").value) //nombre de decalge
+      let solvedChar=[] //charactere resultat
+      
+      if (document.getElementById("planinput-1").value.length != 0)
+      {
+        //start si le premier champ est plein
+        let pinput = document.getElementById("planinput-1").value; //text clair
+
+        for (let i = 0; i < pinput.length; i++)
+        {
+          //loop pour pase sur caractere par caractere
+          var asciinum = pinput.charCodeAt(i); /*returns the Unicode of the character at a specified index (position) in 
+                                                                                                            a string*/
+          if (asciinum >= 65 && asciinum <= 97)
+          {
+            //si le caractere est majuscule
+            solvedChar = (((asciinum - 65) + decalage) % 26) + 65
+            solved += String.fromCharCode(solvedChar)
+          }else if ( asciinum >= 97 && asciinum <= 122)
+          {
+            //si le caractere est minuscule 
+            solvedChar = (((asciinum - 97) + decalage) % 26) + 97
+            solved += String.fromCharCode(solvedChar)
+          }else 
+          {
+            solved += String.fromCharCode(asciinum)
+          };
+        }
+        einput.value = solved; //affiche le resultat
+        //end
+      }
+      else if(document.getElementById("encryptedinput").value.length != 0)
+      {
+        //start si le dexiemme champ est plein
+        let einput = document.getElementById("encryptedinput").value; //text decode
+        
+        for (let i = 0; i < einput.length; i++)
+        {
+          //loop pour pase sur caractere par caractere
+          var asciinum = einput.charCodeAt(i); /*returns the Unicode of the character at a specified index (position)
+                                                                                                     in a string*/
+          if (asciinum >= 65 && asciinum <= 97)
+          {
+            //si le caractere est majuscule
+            solvedChar = (( asciinum - 65 ) - decalage ) % 26 + 65;
+            solved += String.fromCharCode(solvedChar)
+          }else if ( asciinum >= 97 && asciinum <= 122)
+          {
+            //si le caractere est minuscule 
+            solvedChar = (((asciinum - 97) - decalage) % 26) + 97
+            solved += String.fromCharCode(solvedChar)
+          }else 
+          {
+            solved += String.fromCharCode(asciinum)
+          };
+        }
+        pinput.value = solved; //affiche le resultat
+        //end
+      }
+    }
+   </script>
+</body>
+  
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ex2</title>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p id ='text' >This is a paragraph.</p> <!--le paragraphe qui va etre modifier-->
+
+    <!--la liste deroulante pour les tailles-->
+    <label for="police">choisir police:</label>
+    <select id="police" name="police" onchange="changeFontSize (this);">
+      <option value="12">12</option>
+      <option value="16">16</option>
+      <option value="20">20</option>
+    </select>
+
+     <!--la liste deroulante pour les couleurs-->
+    <label for="couleur">choisir couleur:</label>
+    <select id="couleur" name="couleur" onchange="changeColor (this);"> 
+      <option value="red">red</option>
+      <option value="blue">blue</option>
+      <option value="green">Green</option>
+    </select>
+
+
+<script>
+    
+    var changeFontSize = function (font) //changement de la taille 
+    {
+        document.getElementById("text").style.fontSize= font.value +"px";
+    }
+
+
+
+    
+    var changeColor = function (color) //changement de couleur
+    {
+        document.getElementById("text").style.color = color.value;
+    }
+
+</script>
+</body>
+</html> 

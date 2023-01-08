@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>test3</title>
+        <style>
+            img
+            {
+            width:100px;
+            height:100px;
+            }
+        </style>
+    </head>
+    <body>
+        <form >
+            10 + 1 = . . . 
+            <input type="radio" name="choice1" id="choice11" value="12" onclick="document.images[0].src='false.png'">12
+            <input type="radio" name="choice1" id="choice22" value="11" onclick="document.images[0].src='bravo.png';S++;paragraph.innerHTML=S;">11
+            <input type="radio" name="choice1" id="choice33" value="8" onclick="document.images[0].src='false.png'">8
+            <img src="">
+            <br> <br>
+            6 + 1 = . . . 
+            <input type="radio" name="choice2"  value="10" onclick="document.images[1].src='false.png'">10
+            <input type="radio" name="choice2"  value="7" onclick="document.images[1].src='bravo.png';S++;paragraph.innerHTML=S;">7
+            <input type="radio" name="choice2"  value="5" onclick="document.images[1].src='false.png'">5
+            <img src="">
+            <br> <br>
+            8 + 2 = . . . 
+            <input type="radio" name="choice3"  value="0" onclick="document.images[2].src='false.png'">9
+            <input type="radio" name="choice3"  value="10" onclick="document.images[2].src='bravo.png';S++;paragraph.innerHTML=S;">10
+            <input type="radio" name="choice3"  value="11" onclick="document.images[2].src='false.png'">11
+            <img src="">
+            <p id="para"></p>
+        </form>
+        <script>
+            var paragraph=document.getElementById("para");
+            var S=0;
+        </script>
+    </body>
+</html>
